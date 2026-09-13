@@ -1,0 +1,21 @@
+# 默认按文本处理并统一为 LF；下面再对需要特定行尾的类型单独指定。
+# 没有这份文件时，core.autocrlf=true 的 Windows 机器 clone 下来会把 .bat 变成 LF 结尾，
+# cmd.exe 对 LF 结尾的批处理在 goto/标签 上行为异常。
+* text=auto eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.sh  text eol=lf
+
+# 二进制：别让 git 试图做行尾转换
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.pdf   binary

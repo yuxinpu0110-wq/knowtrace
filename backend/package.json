@@ -1,0 +1,14 @@
+{
+  "name": "knowtrace-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "知溯KnowTrace —— 总集成后端（DeepSeek 集成，6 个接口）",
+  "scripts": {
+    "start": "node server.js",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

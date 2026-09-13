@@ -1,0 +1,6 @@
+# 密钥与本地配置（严禁提交）
+.env
+
+# Python
+__pycache__/
+*.pyc

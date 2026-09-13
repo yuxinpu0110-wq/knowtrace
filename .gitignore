@@ -1,0 +1,42 @@
+# ── 运行时数据：store.json 含会话签名密钥 + 密码哈希 + 用户进度，绝不入库 ──
+# 用 backend/data/* 而不是 backend/data/：后者会排除整个目录，否定规则 !backend/data/.gitkeep 救不回来。
+backend/data/*
+!backend/data/.gitkeep
+
+# ── 建图临时产物 ──
+backend/_tmp_*.json
+
+# ── 本地临时上传目录（发布用的截图等，不入库） ──
+Upload/
+
+# ── 密钥与环境变量 ──
+.env
+.env.local
+**/.env
+!.env.example
+!**/.env.example
+
+# ── Python 缓存（2.module-2-md2graph 只作为参考实现保留） ──
+__pycache__/
+*.pyc
+*.pyo
+
+# ── 注意：这里不能写裸的 node_modules/ ──
+# git 的规则是「父目录被排除时无法再包含其下的文件」，写裸的 node_modules/
+# 会把 backend/node_modules 整棵排除掉，且否定规则救不回来。
+# 而 backend/node_modules（express，3.9MB）是「双击即用」的前提，必须入库。
+# 所以只排除前端依赖。
+frontend/node_modules/
+*.map
+.vite/
+
+# ── 编辑器 / 系统 ──
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 日志 ──
+*.log
+npm-debug.log*

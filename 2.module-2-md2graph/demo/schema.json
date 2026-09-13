@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "graph",
+  "description": "「我卡在哪」知识图谱契约（graph.json）",
+  "type": "object",
+  "required": ["book_id", "nodes", "edges"],
+  "additionalProperties": true,
+  "properties": {
+    "book_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "chapter", "level", "summary", "keywords", "source"],
+        "additionalProperties": true,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "chapter": { "type": "string", "minLength": 1 },
+          "level": { "type": "number" },
+          "summary": { "type": "string", "minLength": 1 },
+          "keywords": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source": {
+            "type": "object",
+            "required": ["heading", "start_line", "end_line"],
+            "properties": {
+              "heading": { "type": "string" },
+              "start_line": { "type": "integer", "minimum": 1 },
+              "end_line": { "type": "integer", "minimum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target", "relation", "weight", "reason"],
+        "additionalProperties": true,
+        "properties": {
+          "source": { "type": "string" },
+          "target": { "type": "string" },
+          "relation": {
+            "type": "string",
+            "enum": ["prerequisite", "contains", "related", "contrast"]
+          },
+          "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
