@@ -10,7 +10,7 @@
 
 ## 团队
 
-- **主要开发者**：yunshu-zhang
+- **主要开发者**：yuxinpu0110-wq、yunshu-zhang
 - **参与者**：tujuanjuan、JobWen0220、Darling-An
 
 ---
